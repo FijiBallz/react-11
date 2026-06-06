@@ -1,0 +1,22 @@
+import { useState } from 'react';
+
+export default function LoginForm() {
+    const [zalogowany, setZalogowany] = useState(false);
+  return (
+    <div>
+      <h1>LoginForm</h1>
+      <h3>{zalogowany ? 'Zalogowany' : 'wylogowany'}</h3>
+      <form>
+        <label>
+          Hasło:
+          <input id="haslo" type="password" name="password" />
+        
+        </label><br/>
+        <button type="button" onClick={() => { const haslo = document.getElementById('haslo'); haslo.type = 'text'; }}>Pokaż hasło</button>
+        <button type="button" onClick={() => { const haslo = document.getElementById('haslo'); haslo.type = 'password'; }}>Ukryj hasło</button>
+        <button type="button" onClick={() => { setZalogowany(true);}}>Login</button>
+        <button type="button" onClick={() => { setZalogowany(false);}}>Wyloguj</button>
+      </form>
+    </div>
+  );
+}
